@@ -70,7 +70,7 @@ a.
 
 For the ('AskedColumn'):
 * `('Track')` --> used to get the mean average score grouped by each specialization track.
-* `(Gender)` --> used to get the mean average score grouped by student gender demographics.
+* `('Gender')` --> used to get the mean average score grouped by student gender demographics.
 * `('Hometown')` --> used to get the mean average score by geographic hometown regions.
 
 b. 
