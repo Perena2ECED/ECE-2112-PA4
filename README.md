@@ -5,36 +5,45 @@ Paulene Anne V. Pereña <br>
 This repository contains the Programming Assignment 2 for the course Advanced Computer Programming (ECE2112). This project consists of three Python problems assigned to Module 4: Data Wrangling and Visualization.
 
 The specific functions and syntax structures utilized throughout the codebase were implemented as follows:
-** import pandas
-** df
-  
+
+* The statement `import pandas as pd` loads an external data library into the environment. The pd creates a shortened namespace handle to lessen typing time.
+* The function `pd.read_excel("file name")` syntax is used to load an Excel file and automatically convert its rows and columns into a two-dimensional pd.DataFrame data structure.
+
+  ```
+  ECE_Board_Exam_2 = pd.read_excel('board2.xlsx')
+  ECE_Board_Exam_2
+
+  This evaluates to the two-dimensional DataFrame created for the excel file.
+  ```
 
 # A. Visayas Communication DataFrame
 The problem asks to create a DataFrame named VisComm containing students whose Hometown is Visayas and whose Track is Communication, while retaining only Name, Gender, Math, Electronics, and Average, displaying the number of rows.
 
-* Since the problem asks for an average and the given DataFrame doesn't have a column for the average, the `df['Average'] = df[['Math', 'Electronics', 'GEAS']].mean(axis=1)` syntax is used to calculate the arithmetic mean or average across specific subjects for each student and store under a new column named `Average.`
-  * `df[['Math', 'Electronics', 'GEAS']]` --> it functions to select a subset of columns containing the target subject requested from the DataFrame, as requested from the problem, to isolate them for calculation.
+* Since the problem asks for an average and the given DataFrame doesn't have a column for the average, the `ECE_Board_Exam_2['Average'] = ECE_Board_Exam_2[['Math', 'Electronics', 'GEAS', 'Communication']].mean(axis=1)` syntax is used to calculate the arithmetic mean or average across specific subjects for each student and store under a new column named `Average.`
+  * `df[['Math', 'Electronics', 'GEAS', 'Communication']]` --> it functions to select a subset of columns containing the target subject requested from the DataFrame, as requested from the problem, to isolate them for calculation.
   * `.mean(axis=1`)` --> it functions as a parameter instructing pandas to compute the average horizontally (row-wise across columns) rather than vertically (column-wise).
  
     ```
-    df['Average'] = df[['Math', 'Electronics', 'GEAS']].mean(axis=1)
-    df['Average']
+    ECE_Board_Exam_2['Average'] = ECE_Board_Exam_2[['Math', 'Electronics', 'GEAS', 'Communication']].mean(axis=1)
+    ECE_Board_Exam_2['Average']
 
-    This evaluates to the average of the subjects of Math, Electronics, and GEAS of each      student.
+    This evaluates to the average of the subjects of Math, Electronics, GEAS, and Communication of each      student.
     ```
 
-* The `filtered_df = df[(df['Hometown'] == 'Visayas') & (df['Track'] == 'Communication')]` is used to extract a specific subset of data by applying multiple conditional filters simultaneously stored under an arbitrary variable named `filtered_df.`
+* The `filtered_ECE_Board_Exam_2 = df[(df['Hometown'] == 'Visayas') & (df['Track'] == 'Communication')]` is used to extract a specific subset of data by applying multiple conditional filters simultaneously stored under an arbitrary variable named `filtered_df.`
   * The `df['Hometown'] == 'Visayas'` --> This functions to isolate records  from the DataFrame where the student's hometown is specifically from the Visayas region.
   * `&` --> It functions as a logical `AND` operator, ensuring that a row is only kept if both criteria are satisfied at the same time.
   * `df['Track'] == 'Communication'` --> It functions to isolate records from the DataFrame on which student's specialization track is explicitly set to communication. 
 
-  <img width="567" height="177" alt="image" src="https://github.com/user-attachments/assets/e0c007d2-5e0f-455b-9e45-aee922ff8995" />
+ <img width="822" height="245" alt="image" src="https://github.com/user-attachments/assets/0a0da272-4095-46b6-b671-256bb0da55a2" />
 
-* The `Viscomm = filtered_df[['Name', 'Gender', 'Math', 'Electronics', 'Average']]` functions to create a subset DataFrame by selecting only specific relevant columns filtered from the larger dataset.
+
+* The `Viscomm = filtered_ECE_Board_Exam_2[['Name', 'Gender', 'Math', 'Electronics', 'Average']]` functions to create a subset DataFrame by selecting only specific relevant columns filtered from the larger dataset.
   * `'Name', 'Gender', 'Math', 'Electronics', 'Average'` --> It functions to serve as a structural column filter, removing unnecessary fields to isolate only the asked demographics and subject scores.
  
   
-    <img width="281" height="163" alt="image" src="https://github.com/user-attachments/assets/4403f07e-4995-41e1-a01e-fcdf91207e94" />
+    <img width="412" height="230" alt="image" src="https://github.com/user-attachments/assets/59e4ebd4-7588-4134-a738-79b6f32f3476" />
+
 
 * The `rows =len(Viscomm)` function serves as a built-in Python function that measures the total number of rows or the vertical length of the final dataset stored under the arbitrary variable `rows`.
   ```
@@ -58,11 +67,11 @@ The problem asks to display a second DataFrame named VisFemale whose Hometown is
   * `.VisFemale['Average'] > 60` --> It checks each student's average grade and isolates rows where the value strictly exceeds 60.
 
  
-    <img width="332" height="157" alt="image" src="https://github.com/user-attachments/assets/21b38629-1b50-482e-b3c9-60fa4956ed2a" />
+    <img width="472" height="193" alt="image" src="https://github.com/user-attachments/assets/8aea6a53-deef-40e2-8af4-d1851d289901" />
 
 
 # C. Category Average Visualization
-The problem asks to display the summary of Track, Gender, and Hometown, and to create one figure containing three bar charts: mean Average by Track, by Gender, and by Hometown, also providing an interpretation for the group with the largest sample size for each feature.
+The problem asks to display the summary of Track, Gender, and Hometown, and to create one figure containing three bar charts: mean Average by Track, by Gender, and by Hometown, and to provide an interpretation for the group with the largest sample size for each feature.
 
 a. 
 * The `Summary_of_AskedColumn = df.groupby('AskedColumn')['Average'].mean().reset_index()` is used to break down the main dataset by student track categories and calculate the average score for each academic track stored under the `Summary_of_Track`.
@@ -100,7 +109,7 @@ c.
 
 <img width="852" height="216" alt="image" src="https://github.com/user-attachments/assets/5582f6ed-b694-4d36-af1b-47af1aae5903" />
 
-**INTERPRETATION 
+The problem also asked to create an interpretation, and in terms of __Track__, Communication achieved the highest, followed by Microelectronics, with Instrumentation the lowest. In terms of __Gender__, Male performed well in comparison to Female takers. In terms of __Hometown__, Luzon had the highest number, followed by Mindanao and the Visayas, with the fewest takers.  
  
 
 
