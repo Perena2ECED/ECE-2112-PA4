@@ -128,9 +128,46 @@ c.
   
 * The `plt.tight_layout()` function auto-calculates structural border margins and adjusts spaces to completely eliminate text and label clipping overlaps.
 
- <img width="1104" height="606" alt="image" src="https://github.com/user-attachments/assets/0e9f48c5-ea25-4117-8caf-d74af73ae8c2" />
+  ```
+  import matplotlib.pyplot as plt
 
-<img width="857" height="276" alt="image" src="https://github.com/user-attachments/assets/07881d5e-351d-4485-8c80-8ceec7913d89" />
+  plt.figure(figsize=(18,5))
+
+  plt.subplot(1, 3, 1)
+  plt.bar(Summary_of_Track['Track'], Summary_of_Track['Average'])
+  plt.ylim(0, 100)
+  plt.title('Summary of Track')
+  plt.xlabel('Track')
+  plt.ylabel('Mean Average Score')
+
+  plt.subplot(1, 3, 2)
+  plt.bar(Summary_of_Gender['Gender'], Summary_of_Gender['Average'])
+  plt.ylim(0, 100)
+  plt.title('Summary of Gender')
+  plt.xlabel('Gender')
+  plt.ylabel('Mean Average Score')
+
+
+  plt.subplot(1, 3, 3)
+  plt.bar(Summary_of_Hometown['Hometown'], Summary_of_Hometown['Average'])
+  plt.ylim(0, 100)
+  plt.title('Summary of Hometown')
+  plt.xlabel('Hometown')
+  plt.ylabel('Mean Average Score')
+
+  plt.figtext(-0.02, -0.01, "Interpretation", fontsize = 20)
+  plt.figtext(-0.02, -0.06, "* In terms of Track performance, Communication achieved ... as the lowest.", fontsize = 16)
+  plt.figtext(-0.02, -0.12, "* In terms of Gender, Male Board Exam ... in comparison to Female.", fontsize = 16)
+  plt.figtext(-0.02, -0.18, "* In terms of Hometown, student takers from Luzon ... and Visayas being the lowest.", fontsize = 16)
+
+  plt.tight_layout()
+
+  ```
+
+
+
+<img width="1101" height="364" alt="image" src="https://github.com/user-attachments/assets/71d681ff-3ec6-4519-8ee5-9a322b3b9b4c" />
+
 
 
 
