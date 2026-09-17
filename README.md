@@ -123,10 +123,10 @@ c.
 * The `plt.figtext(dimension1, dimension2, "Text", fontsize = n)` function to place take anywhere on the entire figure completely independent of the graph presented.
   * `dimension1` --> it shifts the text horizontally to the left or to right.
   * `dimension2` --> it shifts the text vertically up or down.
-  * `"Text"` --> is the main statement to be placed in the specified dimensions.
-  * `fontsize = n` --> functions to resize the font based on the n.
+  * `"Text"` --> it is the main statement to be placed in the specified dimensions.
+  * `fontsize = n` --> it functions to resize the font based on the n.
   
-* The `plt.tight_layout` function auto-calculates structural border margins and adjusts spaces to completely eliminate text and label clipping overlaps.
+* The `plt.tight_layout()` function auto-calculates structural border margins and adjusts spaces to completely eliminate text and label clipping overlaps.
 
  <img width="1104" height="606" alt="image" src="https://github.com/user-attachments/assets/0e9f48c5-ea25-4117-8caf-d74af73ae8c2" />
 
