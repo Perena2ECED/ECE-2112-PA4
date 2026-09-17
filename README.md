@@ -139,4 +139,4 @@ c.
 
 * 13 September 2026 --> The README file was created and is continuously being updated.
 * 16 September 2026 --> The README file is still continuously being updated.
-* 17 September 2026 --> The README file was finalized and the .ipynb file was uploaded. 
+* 17 September 2026 --> The README file was finalized and the initial and final .ipynb file was uploaded. 
