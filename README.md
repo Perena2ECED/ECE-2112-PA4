@@ -68,6 +68,7 @@ The problem asks to display a second DataFrame named VisFemale whose Hometown is
 * The `VisFemale.loc[(VisFemale['Average'] > 60)]` is used to filter out students from the isolated demographic group based on a numerical threshold of at least 60.
   * `.loc[]` --> It functions as a label-based data selector that scans the rows of the DataFrame to find positions where the given condition evaluates to true.
   * `VisFemale['Average'] > 60` --> It validates each student's average grade and isolates rows where the value strictly starts and exceeds 60.
+
   ```
   VisFemale.loc[(VisFemale['Average']>=60)]
   ```
@@ -82,10 +83,10 @@ The problem asks to display the summary of Track, Gender, and Hometown, and to c
 a. 
 * The `Summary_of_AskedColumn = ECE_Board_Exam_2.groupby('AskedColumn')['Average'].mean().reset_index()` is used to break down the main dataset by student track categories and calculate the average score for each academic track stored under the `Summary_of_AskedColumn`.
   
- * `ECE_Board_Exam_2.groupby()`--> It functions to split the original DataFrame into subsets based on the categories asked per column.
- * `[Average]` --> It functions to isolate the numerical average grade column from the grouped data subset so that subsequent calculations are restricted to this variable.
- * `.mean()` --> It functions as an aggregation operation that computes the average score for each group.
- * `.reset_index()` --> It functions to convert the grouped category names back from index labels into regular DataFrame columns while resetting the row index to a standard sequence of numbers starting from zero.
+  * `ECE_Board_Exam_2.groupby()`--> It functions to split the original DataFrame into subsets based on the categories asked per column.
+  * `[Average]` --> It functions to isolate the numerical average grade column from the grouped data subset so that subsequent calculations are restricted to this variable.
+  * `.mean()` --> It functions as an aggregation operation that computes the average score for each group.
+  * `.reset_index()` --> It functions to convert the grouped category names back from index labels into regular DataFrame columns while resetting the row index to a standard sequence of numbers starting from zero.
 
 For the ('AskedColumn'):
 * `('Track')` --> used to get the mean average score for each specialization track.
@@ -114,44 +115,24 @@ c.
   * `Summary_of_AskedColumn['AskedColumn'], Summary_of_AskedColumn['Average']` --> is used together as the primary inputs to map the unique categorical labels onto the horizontal X-axis and match them directly with their corresponding numerical performance means on the vertical Y-axis.
    
 * The `plt.ylim(0, 100)` function clamps the vertical numeric axis from a minimum baseline of 0 up to a standardized max ceiling of 100.
-* The `plt.tight_layout` function auto-calculates structural border margins and adjusts spaces to completely eliminate text and label clipping overlaps.
+
 * The `plt.title()` function displays a Text string at the top of the axes to indicate the subject of the plot.
 * The `plt.xlabel()` function applies a descriptive text label on the horizontal axis to define the metric being plotted on it.
-* The `plt.ylabel()` function applies a descriptive text label on the vertical axis to define the metric being plotted on it. 
-  ```
-  import matplotlib.pyplot as plt
+* The `plt.ylabel()` function applies a descriptive text label on the vertical axis to define the metric being plotted on it.
 
-  plt.figure(figsize=(18,5))
-
-  plt.subplot(1, 3, 1)
-  plt.bar(Summary_of_Track['Track'], Summary_of_Track['Average'])
-  plt.ylim(0, 100)
-  plt.title('Summary of Track')
-  plt.xlabel('Track')
-  plt.ylabel('Mean Average Score')
-
-  plt.subplot(1, 3, 2)
-  plt.bar(Summary_of_Gender['Gender'], Summary_of_Gender['Average'])
-  plt.ylim(0, 100)
-  plt.title('Summary of Gender')
-  plt.xlabel('Gender')
-  plt.ylabel('Mean Average Score')
+* The `plt.figtext(dimension1, dimension2, "Text", fontsize = n)` function to place take anywhere on the entire figure completely independent of the graph presented.
+  * `dimension1` --> it shifts the text horizontally to the left or to right.
+  * `dimension2` --> it shifts the text vertically up or down.
+  * `"Text"` --> is the main statement to be placed in the specified dimensions.
+  * `fontsize = n` --> functions to resize the font based on the n.
   
-  plt.subplot(1, 3, 3)
-  plt.bar(Summary_of_Hometown['Hometown'], Summary_of_Hometown['Average'])
-  plt.ylim(0, 100)
-  plt.title('Summary of Hometown')
-  plt.xlabel('Hometown')
-  plt.ylabel('Mean Average Score')
+* The `plt.tight_layout` function auto-calculates structural border margins and adjusts spaces to completely eliminate text and label clipping overlaps.
 
-  plt.tight_layout()
-  ```
+ <img width="1104" height="606" alt="image" src="https://github.com/user-attachments/assets/0e9f48c5-ea25-4117-8caf-d74af73ae8c2" />
 
-<img width="1485" height="406" alt="image" src="https://github.com/user-attachments/assets/0685edac-2341-4cbb-aa90-c267b9f9ebe3" />
+<img width="857" height="276" alt="image" src="https://github.com/user-attachments/assets/07881d5e-351d-4485-8c80-8ceec7913d89" />
 
 
-The problem also asked to create an interpretation, and in terms of __Track__, Communication achieved the highest, followed by Microelectronics, with Instrumentation the lowest. In terms of __Gender__, Male performed well in comparison to Female takers. In terms of __Hometown__, Luzon had the highest number, followed by Mindanao and the Visayas, with the fewest takers.  
- 
 
 
 # Version History
